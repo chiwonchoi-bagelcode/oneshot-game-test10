@@ -166,7 +166,7 @@
   BP.resize = function () {
     var cv = this.cv, rect = cv.parentElement.getBoundingClientRect();
     var W = Math.max(100, Math.floor(rect.width)), H = Math.max(100, Math.floor(rect.height));
-    var dpr = Math.min(2.5, window.devicePixelRatio || 1);
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
     this.dpr = dpr; this.W = W; this.H = H;
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
     cv.style.width = W + 'px'; cv.style.height = H + 'px';

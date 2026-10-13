@@ -55,6 +55,7 @@
     E.num.textContent = meta.label || '';
     E.name.textContent = I.name(def.name);
     showIntro(meta.intro || (meta.readyHint ? 'ready' : null));
+    renderRecipes();
     P.reset();
   };
 
@@ -94,7 +95,7 @@
     P.period = (P.def.tempo || 650) * (st.tempo === 'relaxed' ? 1.45 : 1);
     if (P.mode === 'run' || P.mode === 'lost') P.t0 = P.lastBeatAt - P.S.t * P.period;
     P.board.paper = st.paper; P.board.drawStatic();
-    renderQueue();
+    renderQueue(); renderRecipes();
   };
 
   /* ---------- input ---------- */
@@ -131,7 +132,7 @@
   P.hint = function () {
     var sol = P.def.sol || [];
     if (P.mode === 'won' || P.mode === 'done' || !sol.length) return;
-    if (P.hintsShown >= sol.length) { flashMsg(T('hintTip')); return; }
+    if (P.hintsShown >= sol.length) { flashMsg(T('hintAll')); return; }
     P.hintsShown++; P.hintsEver = true;
     Snd.hint();
     updateHintBtn();
@@ -398,6 +399,19 @@
     E.intro.className = 'pl-intro show';
   }
 
-  P.refreshQueue = function () { if (P.L) renderQueue(); };
+  /* "red + blue = purple" for every mixed colour this sheet asks for */
+  function renderRecipes() {
+    var L = P.L, seen = {}, html = '', pal = window.Render.palette;
+    var chip = function (c) { var hex = pal[c]; return Icons.chip(hex, c, window.Render.lum(hex) > 0.62); };
+    L.targets.forEach(function (i) {
+      var c = L.target[i];
+      if (Sim.isPrimary(c) || seen[c]) return;
+      seen[c] = 1;
+      var parts = [1, 2, 4].filter(function (b) { return c & b; });
+      html += '<span class="recipe">' + chip(parts[0]) + '+' + chip(parts[1]) + '=' + chip(c) + '</span>';
+    });
+    $('pl-recipes').innerHTML = html;
+  }
+  P.refreshQueue = function () { if (P.L) { renderQueue(); renderRecipes(); } };
   window.Play = P;
 })();

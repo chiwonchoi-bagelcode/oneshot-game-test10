@@ -77,7 +77,7 @@
     var p = key.split('-');
     var lab = I.lang === 'ko' ? T('dailyLevel', { m: +p[1], d: +p[2] }) : T('dailyLevel', { mn: T('months')[+p[1] - 1].slice(0, 3), d: +p[2] });
     window.Play.start(def, {
-      label: lab, intro: null,
+      label: lab, intro: dailyIntro(def),
       onWin: function (res) {
         var late = key !== St.dayKey();
         St.d.daily[key] = { board: res.board, seeds: res.seeds, tries: res.tries, hints: res.hints, at: Date.now(), late: late || undefined };
@@ -86,6 +86,22 @@
       }
     });
     setWinButtons('daily');
+  }
+  var DAILY_UNLOCK = 6;
+  function dailyOpen() { return countDone().n >= DAILY_UNLOCK; }
+  /* a daily sheet may use a rule the player has not met in the sketchbook yet: name it */
+  function dailyIntro(def) {
+    var L = Sim.parse(def), firstOf = { wall: 'around', seed: 'sleeping', short: 'short-ink', dry: 'white-space', thick: 'heavy-paper' };
+    var has = {
+      wall: Array.prototype.some.call(L.terrain, function (t) { return t === Sim.WALL; }),
+      seed: L.seeds.length > 0,
+      short: L.inks.some(function (k) { return k.r !== Sim.UNL; }),
+      dry: L.dries.length > 0,
+      thick: Array.prototype.some.call(L.terrain, function (t) { return t === Sim.THICK; })
+    };
+    var order = ['seed', 'short', 'dry', 'thick', 'wall'];
+    for (var k = 0; k < order.length; k++) if (has[order[k]] && !St.d.levels[firstOf[order[k]]]) return order[k];
+    return null;
   }
   function setWinButtons(kind) {
     var nb = $('pl-next'), rb = $('pl-replay');
@@ -132,6 +148,12 @@
     if (dd) { thumb.classList.add('has'); paintDaily(thumb, key, dd); }
     else { thumb.classList.remove('has'); var ctx = thumb.getContext('2d'); ctx.clearRect(0, 0, thumb.width, thumb.height); }
     $('home-daily').classList.toggle('done', !!dd);
+    var open = dailyOpen();
+    $('home-daily').classList.toggle('locked', !open);
+    if (!open) {
+      $('home-daily-sub').textContent = T('dailyLocked', { n: DAILY_UNLOCK - c.n });
+      $('home-streak').innerHTML = Icons.icon('lock');
+    }
   }
   function paintDaily(canvas, key, rec) {
     var def = window.InkDaily.get(key), L = Sim.parse(def);
@@ -243,7 +265,7 @@
         grid.appendChild(b);
         if (rec) requestAnimationFrame(function () { paintDaily(b.querySelector('canvas'), key, rec); });
         b.addEventListener('click', function () {
-          if (future) { Snd.deny(); return; }
+          if (future || (!rec && !dailyOpen())) { Snd.deny(); return; }
           Snd.ui();
           if (rec) {
             var def = window.InkDaily.get(key);
@@ -254,7 +276,8 @@
     }
     var tk = St.d.daily[todayKey];
     $('diary-play').querySelector('span').textContent = tk ? T('viewToday') : T('playToday');
-    $('diary-note').textContent = tk ? T('streakKeep', { n: sk + 1 }) : T('diff')[window.InkDaily.tier(todayKey)];
+    $('diary-note').textContent = tk ? T('streakKeep', { n: sk + 1 }) : (dailyOpen() ? T('diff')[window.InkDaily.tier(todayKey)] : T('dailyLocked', { n: DAILY_UNLOCK - countDone().n }));
+    $('diary-play').classList.toggle('disabled', !tk && !dailyOpen());
   }
 
   /* ---------- viewer ---------- */
@@ -329,7 +352,11 @@
   function wire() {
     function on(id, fn) { $(id).addEventListener('click', function (e) { Snd.unlock(); fn(e); }); }
     on('home-continue', function () { Snd.ui(); var t = nextTarget(); if (t >= 0) startLevel(t); else show('book'); });
-    on('home-daily', function () { Snd.ui(); var k = St.dayKey(); if (St.d.daily[k]) show('diary'); else startDaily(k); });
+    on('home-daily', function () {
+      var k = St.dayKey();
+      if (!dailyOpen()) { Snd.deny(); return; }
+      Snd.ui(); if (St.d.daily[k]) show('diary'); else startDaily(k);
+    });
     on('home-strip', function () { Snd.ui(); bookChapter = bookChapterHome; show('book'); });
     on('home-book', function () { Snd.ui(); var t = nextTarget(); bookChapter = t >= 0 ? FLAT[t].ci : 0; show('book'); });
     on('home-diary', function () { Snd.ui(); diaryMonth = null; show('diary'); });
@@ -341,7 +368,9 @@
     on('diary-prev', function () { Snd.ui(); diaryMonth = new Date(diaryMonth.getFullYear(), diaryMonth.getMonth() - 1, 1); renderDiary(); });
     on('diary-next', function () { Snd.ui(); diaryMonth = new Date(diaryMonth.getFullYear(), diaryMonth.getMonth() + 1, 1); renderDiary(); });
     on('diary-play', function () {
-      Snd.ui(); var k = St.dayKey(), rec = St.d.daily[k];
+      var k = St.dayKey(), rec = St.d.daily[k];
+      if (!rec && !dailyOpen()) { Snd.deny(); return; }
+      Snd.ui();
       if (rec) openViewer({ title: T('daily'), sub: k, L: Sim.parse(window.InkDaily.get(k)), rec: rec, play: function () { startDaily(k); } });
       else startDaily(k);
     });

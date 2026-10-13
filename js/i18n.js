@@ -5,7 +5,7 @@
     ko: {
       title: '번짐', subtitle: 'Inkbloom',
       continue: '이어서 그리기', start: '그리기 시작', allDone: '모든 장을 완성했어요',
-      daily: '오늘의 한 장', dailyDone: '오늘 완성', dailyNew: '새 그림이 기다려요',
+      daily: '오늘의 한 장', dailyDone: '오늘 완성', dailyNew: '새 그림이 기다려요', dailyLocked: '스케치북 그림 {n}장을 더 그리면 열려요',
       streak: '{n}일 연속', bestStreak: '최고 {n}일', noStreak: '오늘부터 시작',
       sketchbook: '스케치북', diary: '그림 일기', settings: '설정',
       chapter: '{n}장', locked: '잠김', newPaper: '새 종이: {p}',
@@ -37,6 +37,7 @@
       fEmptySub: '어디에 떨어뜨려야 닿을까요',
       fGenericSub: '자리나 타이밍을 바꿔 보세요',
       hintTip: '막히면 힌트를 눌러 보세요',
+      hintAll: '힌트를 다 펼쳤어요. 숫자 박자에 맞춰 떨어뜨려 보세요',
       // settings
       sLang: '언어', sSound: '소리', sVibe: '진동', sCB: '색 구분 도움', sCBDesc: '색맹 친화 팔레트와 모든 칸에 색 기호를 표시해요',
       sTempo: '박자 빠르기', tempoNormal: '보통', tempoRelaxed: '느긋하게', sPaper: '종이',
@@ -71,7 +72,7 @@
     en: {
       title: 'Inkbloom', subtitle: '번짐',
       continue: 'Continue', start: 'Start painting', allDone: 'Every page is painted',
-      daily: 'Daily Sheet', dailyDone: 'Done today', dailyNew: 'A new sheet awaits',
+      daily: 'Daily Sheet', dailyDone: 'Done today', dailyNew: 'A new sheet awaits', dailyLocked: 'Opens after {n} more sketchbook paintings',
       streak: '{n}-day streak', bestStreak: 'Best {n}', noStreak: 'Start today',
       sketchbook: 'Sketchbook', diary: 'Diary', settings: 'Settings',
       chapter: 'Book {n}', locked: 'Locked', newPaper: 'New paper: {p}',
@@ -102,6 +103,7 @@
       fEmptySub: 'Where would a drop reach it?',
       fGenericSub: 'Try another spot or another beat',
       hintTip: 'Stuck? Try a hint',
+      hintAll: 'Every drop is shown. Drop each one on its numbered beat',
       sLang: 'Language', sSound: 'Sound', sVibe: 'Vibration', sCB: 'Colour assist', sCBDesc: 'Colour-blind friendly palette and colour marks on every cell',
       sTempo: 'Tempo', tempoNormal: 'Normal', tempoRelaxed: 'Relaxed', sPaper: 'Paper',
       sReset: 'Reset progress', sResetConfirm: 'Erase all progress? Tap again to confirm',

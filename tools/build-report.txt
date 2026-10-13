@@ -1,9 +1,9 @@
-1-1 first-drop [hand] inks=R sols=25 distinct=25 first=25 sameBeat=false plan=[[2,2,0]]
+1-1 first-drop [hand] inks=R sols=18 distinct=18 first=18 sameBeat=false plan=[[2,2,0]]
+    ..#..   .....   RR#RR
+    .....   R...R   RRRRR
     .....   .....   RRRRR
-    .....   .R.R.   RRRRR
-    .....   .....   RRRRR
-    .....   ..R..   RRRRR
-    .....   .....   RRRRR
+    #...#   .....   #RRR#
+    ##.##   ..R..   ##R##
 1-2 two-shores [hand] inks=R,B sols=330 distinct=178 first=24 sameBeat=false plan=[[0,2,0],[4,3,1]]
     .....   .....   RRRPB
     .....   R...B   RRRPB

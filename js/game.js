@@ -117,7 +117,7 @@
     Sim.drop(L, S, i);
     P.history.push({ i: i, t: S.t, c: c });
     window.Store.d.totalDrops++;
-    P.board.onDrop(i, c, now);
+    P.board.onDrop(i, c, now, S.t + 1);
     Snd.drop(c);
     renderQueue();
     E.beat.textContent = String(S.t + 1);
@@ -215,6 +215,18 @@
     var br = Sim.broken(L, S);
     if (br >= 0) { fail(br); return; }
     if (Sim.allTargetsMet(L, S) && Sim.settlesSolved(L, S)) { win(at); return; }
+    if (!Sim.active(L, S)) {
+      // settled with ink left: can what remains still finish the picture?
+      var avail = 0;
+      for (var k = S.k; k < L.inks.length; k++) avail |= L.inks[k].c;
+      for (var q = 0; q < L.n; q++) avail |= S.sd[q];
+      for (var b = 0; b < L.targets.length; b++) {
+        var ti = L.targets[b], need = L.target[ti];
+        if (S.col[ti]) continue;
+        var mixNeeded = !Sim.isPrimary(need), colours = Sim.bits(avail & need);
+        if ((mixNeeded && (colours < 2 || S.k >= L.inks.length)) || (!mixNeeded && !(avail & need))) { fail(ti); return; }
+      }
+    }
     if (!Sim.active(L, S) && !Sim.hasDropSpot(L, S)) {
       // nothing will move again
       var miss = -1;

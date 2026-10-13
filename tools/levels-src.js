@@ -10,7 +10,7 @@ module.exports = {
       names: [['첫 방울', 'First Drop'], ['두 물가', 'Two Shores'], ['보랏빛 길', 'Violet Path'], ['기다려', 'Wait for It'], ['노을', 'Sunset'], ['새싹', 'Sprout'],
         ['먼저 온 쪽', 'First Come'], ['저녁 강', 'Evening River'], ['세 갈래', 'Three Ways'], ['우물가', 'By the Wells'], ['귤밭', 'Tangerine Field'], ['첫 장의 끝', 'End of Book One']],
       slots: [
-        { id: 'first-drop', tempo: 760, tapCue: true, map: ['.....', '.....', '.....', '.....', '.....'], goal: ['.....', '.R.R.', '.....', '..R..', '.....'], inks: ['R'], sol: [{ x: 2, y: 2, t: 0 }] },
+        { id: 'first-drop', tempo: 760, tapCue: true, map: ['..#..', '.....', '.....', '#...#', '##.##'], goal: ['.....', 'R...R', '.....', '.....', '..R..'], inks: ['R'], sol: [{ x: 2, y: 2, t: 0 }] },
         { id: 'two-shores', tempo: 760, map: ['.....', '.....', '.....', '.....', '.....', '.....'], goal: ['.....', 'R...B', '.....', '.....', 'R...B', '.....'], inks: ['R', 'B'], sol: [{ x: 0, y: 2, t: 0 }, { x: 4, y: 3, t: 1 }] },
         { id: 'violet-path', tempo: 760, intro: 'mix', map: ['.......', '.......', '.R.....', '.......', '.......'], goal: ['.......', '...P...', '...P...', '...P...', '.......'], inks: ['B'] },
         { id: 'wait-for-it', tempo: 760, intro: 'well', tapCue: true, map: ['.......', 'o.....o', '.......'], goal: ['....P..', '....P..', '....P..'], inks: ['R', 'B'] },

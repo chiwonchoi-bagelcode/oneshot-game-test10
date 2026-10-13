@@ -7,7 +7,7 @@
 
   var PAL = {
     normal: { 1: '#e8463d', 2: '#f7c52e', 4: '#2f7de0', 3: '#f38a2b', 5: '#8f57d1', 6: '#36a866', 7: '#4b3f37' },
-    cb: { 1: '#e3621b', 2: '#f2df4c', 4: '#1c73bd', 3: '#f1a51f', 5: '#c66aa8', 6: '#0fa17b', 7: '#3c3834' }
+    cb: { 1: '#e3621b', 2: '#f6d84a', 4: '#1c73bd', 3: '#f1a51f', 5: '#c66aa8', 6: '#0fa17b', 7: '#3c3834' }
   };
   var PAPERS = {
     cream: { base: '#f4ecdf', fiber: 'rgba(150,120,80,', speck: 0.05 },
@@ -146,7 +146,7 @@
     this.cv = canvas; this.g = canvas.getContext('2d');
     this.ink = makeCanvas(4, 4); this.ig = this.ink.getContext('2d');
     this.stat = makeCanvas(4, 4); this.sg = this.stat.getContext('2d');
-    this.gridC = makeCanvas(4, 4); this.wallC = makeCanvas(4, 4);
+    this.gridC = makeCanvas(4, 4); this.wallC = makeCanvas(4, 4); this.peelC = makeCanvas(4, 4);
     this.dpr = 1; this.W = 0; this.H = 0; this.s = 40; this.ox = 0; this.oy = 0;
     this.L = null; this.anim = []; this.fx = []; this.tfx = {}; this.paper = 'cream';
     this.finish = null; this.failAt = null; this.shake = 0; this.dropFx = [];
@@ -170,7 +170,7 @@
     this.dpr = dpr; this.W = W; this.H = H;
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
     cv.style.width = W + 'px'; cv.style.height = H + 'px';
-    [this.ink, this.stat, this.gridC, this.wallC].forEach(function (c) { c.width = cv.width; c.height = cv.height; });
+    [this.ink, this.stat, this.gridC, this.wallC, this.peelC].forEach(function (c) { c.width = cv.width; c.height = cv.height; });
     if (!this.L) return;
     var L = this.L;
     var s = Math.floor(Math.min((W - 20) / (L.w + 0.5), (H - 20) / (L.h + 0.5), 84));
@@ -249,7 +249,17 @@
       g.restore();
       g.fillStyle = 'rgba(255,255,255,0.10)';
       wallRects.forEach(function (a) { if (!a[8]) g.fillRect(a[0] + Math.max(a[4], 2), a[1] + 1, a[2] - Math.max(a[4], 2) - Math.max(a[5], 2), Math.max(1.5, s * 0.05)); });
-    }
+      // the same shapes as clean paper, revealed when the masking is peeled off a finished painting
+      var pg = this.peelC.getContext('2d');
+      pg.setTransform(dpr, 0, 0, dpr, 0, 0); pg.clearRect(0, 0, this.W, this.H);
+      pg.save();
+      pg.shadowColor = 'rgba(90,70,40,0.18)'; pg.shadowBlur = s * 0.08; pg.shadowOffsetY = s * 0.02;
+      pg.fillStyle = '#fbf7ef';
+      pg.beginPath();
+      wallRects.forEach(function (a) { roundRectPath(pg, a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7]); });
+      pg.fill();
+      pg.restore();
+    } else { this.peelC.getContext('2d').clearRect(0, 0, this.peelC.width, this.peelC.height); }
     g = sgPaper;
     // pencil grid (separate so it can fade when the painting is finished)
     var gg = this.gridC.getContext('2d');
@@ -262,9 +272,10 @@
   };
 
   /* ---------- events from the game ---------- */
-  BP.onDrop = function (i, c, now) {
+  BP.onDrop = function (i, c, now, beat) {
     this.anim[i] = { t: now + 70, kind: 'drop', from: null, dur: 300 };
     var p = this.cellXY(i), s = this.s, cx = p[0] + s / 2, cy = p[1] + s / 2;
+    if (beat != null) this.fx.push({ k: 'label', x: cx, y: cy - s * 0.45, c: c, t: now + 60, dur: 900, text: String(beat) });
     this.dropFx.push({ x: cx, y: cy, c: c, t: now });
     this.fx.push({ k: 'ring', x: cx, y: cy, c: c, t: now + 70, dur: 520, r0: s * 0.2, r1: s * 0.95, w: 3 });
     for (var k = 0; k < 7; k++) {
@@ -320,7 +331,10 @@
     g.drawImage(this.stat, 0, 0, this.W, this.H);
     var fin = this.finish ? clamp01((now - this.finish.t) / 900) : 0;
     g.globalAlpha = 1 - fin * 0.85; g.drawImage(this.gridC, 0, 0, this.W, this.H); g.globalAlpha = 1;
-    g.drawImage(this.wallC, 0, 0, this.W, this.H);
+    var peel = this.finish ? clamp01((now - this.finish.t - 250) / 650) : 0;
+    if (peel < 1) { g.globalAlpha = 1 - peel; g.drawImage(this.wallC, 0, 0, this.W, this.H); }
+    if (peel > 0) { g.globalAlpha = peel; g.drawImage(this.peelC, 0, 0, this.W, this.H); }
+    g.globalAlpha = 1;
 
     // wells
     for (var wi = 0; wi < L.n; wi++) {
@@ -504,7 +518,7 @@
       var c = S.col[i]; if (!c || L.target[i]) continue;
       var a = this.anim[i]; if (a && a.t > performance.now() - a.dur * 0.6) continue;
       var p = this.cellXY(i), light = lum(palette[c]) > 0.6;
-      glyph(g, p[0] + s / 2, p[1] + s / 2, s * 0.42, c, light ? 'rgba(40,30,20,0.55)' : 'rgba(255,255,255,0.7)', null);
+      glyph(g, p[0] + s / 2, p[1] + s / 2, s * 0.46, c, light ? 'rgba(40,30,20,0.7)' : 'rgba(255,255,255,0.85)', light ? 'rgba(40,30,20,0.35)' : 'rgba(255,255,255,0.45)');
     }
   };
 
@@ -693,6 +707,13 @@
       } else if (f.k === 'drop') {
         var e = easeOut(q), x = f.x + f.vx * e * 0.6, y = f.y + f.vy * e * 0.6;
         g.fillStyle = rgba(col, 0.85 * (1 - q * q)); g.beginPath(); g.arc(x, y, f.size * (1 - q * 0.4), 0, 7); g.fill();
+      } else if (f.k === 'label') {
+        var ly = f.y - this.s * 0.35 * easeOut(q);
+        g.globalAlpha = q < 0.7 ? 1 : 1 - (q - 0.7) / 0.3;
+        g.font = '800 ' + Math.round(this.s * 0.3) + 'px system-ui, sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle';
+        g.lineWidth = 3; g.strokeStyle = 'rgba(255,250,240,0.95)'; g.strokeText(f.text, f.x, ly);
+        g.fillStyle = shade(col, -0.35); g.fillText(f.text, f.x, ly);
+        g.globalAlpha = 1;
       } else if (f.k === 'spark') {
         var e2 = easeOut(q), sx = f.x + f.vx * e2 * 0.6, sy = f.y + f.vy * e2 * 0.6, sz = f.size * (1 - q * 0.7);
         g.fillStyle = f.c ? shade(col, 0.45) : '#ffffff';
@@ -755,7 +776,8 @@
     for (var w = 0; w < L.n; w++) {
       if (L.terrain[w] !== Sim.WALL) continue;
       var wx = w % L.w, wy = (w - wx) / L.w;
-      g.fillStyle = '#34303a'; g.fillRect(ox + wx * s + 0.5, oy + wy * s + 0.5, s - 1, s - 1);
+      g.fillStyle = 'rgba(90,70,40,0.10)'; g.fillRect(ox + wx * s, oy + wy * s + 0.6, s, s);
+      g.fillStyle = '#fbf7ef'; g.fillRect(ox + wx * s, oy + wy * s, s, s);
     }
     if (opts.seeds) for (var sd = 0; sd < L.n; sd++) {
       // unwoken sleeping ink stays as a bead in the painting

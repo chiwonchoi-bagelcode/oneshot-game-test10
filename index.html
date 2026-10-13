@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#1d1b24">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="잉크가 박자에 맞춰 번지고, 같은 순간에 만난 색이 섞이는 타이밍 퍼즐">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<title>번짐 · Inkbloom</title>
+</head>
+<body>
+<div id="app">
+
+  <!-- HOME -->
+  <section id="scr-home" class="screen">
+    <canvas id="home-bg"></canvas>
+    <div class="home-top">
+      <h1 class="logo"><span id="logo-main" class="logo-main">번짐</span><span id="logo-sub" class="logo-sub">Inkbloom</span></h1>
+      <p id="home-progress" class="home-progress"></p>
+    </div>
+    <div class="home-mid">
+      <button id="home-strip" class="strip-card">
+        <span class="strip-head"><b id="strip-title"></b><span id="strip-count"></span></span>
+        <span id="strip-tiles" class="strip-tiles"></span>
+      </button>
+      <button id="home-daily" class="daily-card">
+        <canvas id="home-daily-thumb" class="daily-thumb"></canvas>
+        <span class="daily-text"><b id="home-daily-title"></b><span id="home-daily-sub"></span></span>
+        <span id="home-streak" class="streak"></span>
+      </button>
+    </div>
+    <div class="home-bottom">
+      <button id="home-continue" class="primary-btn big-btn" data-ic="play"><span class="lbl"><span class="big"></span><span class="small"></span></span></button>
+      <nav class="home-nav">
+        <button id="home-book" class="nav-btn" data-ic="book"><span data-t="sketchbook"></span></button>
+        <button id="home-diary" class="nav-btn" data-ic="diary"><span data-t="diary"></span></button>
+        <button id="home-settings" class="nav-btn" data-ic="gear"><span data-t="settings"></span></button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- PLAY -->
+  <section id="scr-play" class="screen">
+    <header class="topbar">
+      <button id="pl-home" class="icon-btn" data-ic="home" aria-label="home"></button>
+      <div class="pl-title"><span id="pl-num" class="pl-num"></span><span id="pl-name" class="pl-name"></span></div>
+      <button id="pl-settings" class="icon-btn" data-ic="gear" aria-label="settings"></button>
+    </header>
+    <div class="pl-info">
+      <div id="pl-intro" class="pl-intro"></div>
+      <div id="pl-beat" class="pl-beat" data-ic="beat"><span id="pl-beat-val">–</span></div>
+    </div>
+    <div id="board-wrap" class="board-wrap">
+      <canvas id="board"></canvas>
+      <div id="pl-seal" class="seal"></div>
+      <div id="pl-msg" class="pl-msg"><div id="pl-m1" class="m1"></div><div id="pl-m2" class="m2"></div></div>
+    </div>
+    <footer id="pl-bottom" class="pl-bottom">
+      <button id="pl-retry" class="round-btn" data-ic="retry"><span data-t="retry"></span></button>
+      <div id="pl-queue" class="queue"></div>
+      <button id="pl-bigretry" class="primary-btn retry-big" data-ic="retry"><span data-t="retry"></span></button>
+      <button id="pl-hint" class="round-btn" data-ic="hint"><span data-t="hint"></span><i id="pl-hint-badge" class="badge"></i></button>
+    </footer>
+    <footer id="pl-win" class="pl-win" hidden>
+      <div class="win-text"><b id="pl-win-title"></b><span id="pl-win-sub"></span></div>
+      <div class="win-btns">
+        <button id="pl-replay" class="ghost-btn"></button>
+        <button id="pl-next" class="primary-btn" data-ic="next"><span></span></button>
+      </div>
+    </footer>
+  </section>
+
+  <!-- SKETCHBOOK -->
+  <section id="scr-book" class="screen">
+    <header class="topbar">
+      <button id="book-back" class="icon-btn" data-ic="back" aria-label="back"></button>
+      <div class="pl-title"><span class="pl-name" data-t="sketchbook"></span></div>
+      <span class="icon-btn spacer"></span>
+    </header>
+    <div id="book-tabs" class="tabs"></div>
+    <div class="book-head"><b id="book-ch-name"></b><span id="book-ch-sub"></span></div>
+    <div id="book-grid" class="book-grid"></div>
+  </section>
+
+  <!-- DIARY -->
+  <section id="scr-diary" class="screen">
+    <header class="topbar">
+      <button id="diary-back" class="icon-btn" data-ic="back" aria-label="back"></button>
+      <div class="pl-title"><span class="pl-name" data-t="diary"></span></div>
+      <span class="icon-btn spacer"></span>
+    </header>
+    <div id="diary-streak" class="diary-streak"></div>
+    <div class="month-nav">
+      <button id="diary-prev" class="icon-btn" data-ic="prev" aria-label="previous month"></button>
+      <b id="diary-month"></b>
+      <button id="diary-next" class="icon-btn" data-ic="fwd" aria-label="next month"></button>
+    </div>
+    <div id="diary-grid" class="diary-grid"></div>
+    <div class="diary-foot">
+      <p id="diary-note" class="diary-note"></p>
+      <button id="diary-play" class="primary-btn" data-ic="brush"><span></span></button>
+    </div>
+  </section>
+
+  <!-- SETTINGS SHEET -->
+  <div id="sheet-settings" class="sheet">
+    <div class="sheet-body">
+      <div class="sheet-head"><b id="set-title"></b><button id="set-close" class="icon-btn" data-ic="close" aria-label="close"></button></div>
+      <div class="set-row"><label id="lbl-lang"></label><div id="set-lang" class="seg"></div></div>
+      <div class="set-row"><label id="lbl-sound"></label><div id="set-sound" class="seg"></div></div>
+      <div class="set-row"><label id="lbl-vibe"></label><div id="set-vibe" class="seg"></div></div>
+      <div class="set-row"><label id="lbl-tempo"></label><div id="set-tempo" class="seg"></div></div>
+      <div class="set-row col"><div class="row-top"><label id="lbl-cb"></label><div id="set-cb" class="seg"></div></div><p id="desc-cb" class="desc"></p></div>
+      <div class="set-row col"><label id="lbl-legend"></label><div id="set-legend" class="legend"></div><p id="desc-legend" class="desc"></p></div>
+      <div class="set-row col"><label id="lbl-paper"></label><div id="set-paper" class="papers"></div></div>
+      <button id="set-reset" class="danger-btn"></button>
+    </div>
+  </div>
+
+  <!-- PAINTING VIEWER -->
+  <div id="sheet-viewer" class="sheet center">
+    <div class="viewer">
+      <button id="vw-close" class="icon-btn vw-x" data-ic="close" aria-label="close"></button>
+      <div class="frame"><canvas id="vw-canvas"></canvas></div>
+      <b id="vw-title"></b><span id="vw-sub" class="vw-sub"></span>
+      <div id="vw-stats" class="vw-stats"></div>
+      <button id="vw-play" class="ghost-btn" data-ic="retry"><span data-t="replay"></span></button>
+    </div>
+  </div>
+</div>
+
+<script src="js/sim.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/daily.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/store.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/render.js"></script>
+<script src="js/game.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>

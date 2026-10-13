@@ -1,0 +1,577 @@
+1-1 first-drop [hand] inks=R sols=25 distinct=25 first=25 sameBeat=false plan=[[2,2,0]]
+    .....   .....   RRRRR
+    .....   .R.R.   RRRRR
+    .....   .....   RRRRR
+    .....   ..R..   RRRRR
+    .....   .....   RRRRR
+1-2 two-shores [hand] inks=R,B sols=330 distinct=178 first=24 sameBeat=false plan=[[0,2,0],[4,3,1]]
+    .....   .....   RRRPB
+    .....   R...B   RRRPB
+    .....   .....   RRRPB
+    .....   .....   RRPBB
+    .....   R...B   RRPBB
+    .....   .....   RRPBB
+1-3 violet-path [hand] inks=B sols=1 distinct=1 first=1 sameBeat=false plan=[[5,2,0]]
+    .......   .......   RRRPBBB
+    .......   ...P...   RRRPBBB
+    .R.....   ...P...   RRRPBBB
+    .......   ...P...   RRRPBBB
+    .......   .......   RRRPBBB
+1-4 wait-for-it [hand] inks=R,B sols=1 distinct=1 first=1 sameBeat=false plan=[[0,1,0],[6,1,2]]
+    .......   ....P..   RRRRPBB
+    o.....o   ....P..   RRRRPBB
+    .......   ....P..   RRRRPBB
+1-5 sunset [hand] inks=Y,R sols=29 distinct=9 first=29 sameBeat=false plan=[[1,0,0],[5,5,1]]
+    ......   ......   YYYYYY
+    ......   .....O   YYYYYO
+    ......   ....O.   YYYYOR
+    ......   ...O..   YYYORR
+    ......   ..O...   YYORRR
+    ......   .O....   YORRRR
+1-6 c1-6 [c1_yb#1570936] inks=Y,B sols=3 distinct=1 first=2 sameBeat=false plan=[[3,0,0],[4,4,1]]
+    ......   ..Y...   YYYYYY
+    ......   ......   YYYYYY
+    ......   ....GG   YYYYGG
+    ......   G..G..   GGGGBB
+    ......   ......   BBBBBB
+    ......   ......   BBBBBB
+1-7 c1-7 [c1_race#2513497] inks=B,R sols=4 distinct=1 first=2 sameBeat=false plan=[[0,3,0],[3,4,1]]
+    .....   ...R.   BBBRR
+    .....   .....   BBBRR
+    .....   ....R   BBBRR
+    .....   ..B..   BBBRR
+    .....   ..R..   BBRRR
+    .....   .....   BBRRR
+1-8 c1-8 [c1_rb#209459] inks=R,B sols=4 distinct=4 first=4 sameBeat=false plan=[[4,1,0],[0,4,1]]
+    .....   .....   RRRRR
+    .....   P....   PRRRR
+    .....   ..R..   BPRRR
+    .....   .....   BBPRR
+    .....   ...P.   BBBPR
+    .....   ....R   BBBPR
+1-9 three-ways [hand] inks=R,Y,B sols=1 distinct=1 first=1 sameBeat=false plan=[[0,0,0],[6,0,2],[3,6,3]]
+    o.....o   .......   RRRROYY
+    .......   ....O..   RRRROYY
+    .......   .......   RRRROYY
+    .......   .......   RRRPGYY
+    .......   ..P..G.   RRPBBGY
+    .......   .......   RPBBBBG
+    ...o...   .......   PBBBBBB
+1-10 c1-10 [c1_wells#418917] inks=R,B sols=2 distinct=2 first=2 sameBeat=false plan=[[3,5,0],[1,2,1]]
+    ......   ......   BBBBBP
+    ......   ......   BBBBPR
+    .o....   ......   BBBPRR
+    .....o   ......   BBPRRR
+    ......   .P....   PPRRRR
+    ...o..   ......   RRRRRR
+1-11 c1-11 [c1_ry#2094581] inks=R,Y sols=3 distinct=3 first=3 sameBeat=false plan=[[2,0,0],[4,1,1]]
+    .....   ....O   RRRRO
+    .....   .....   RRROY
+    .....   .....   RRROY
+    .....   .....   RRROY
+    .....   .....   RRROY
+    .....   ...O.   RRROY
+1-12 c1-12 [c1_ryb#2094581] inks=R,Y,B sols=3 distinct=1 first=2 sameBeat=false plan=[[4,0,0],[0,2,1],[2,5,2]]
+    ......   ......   YRRRRR
+    ......   .Y....   YYRRRR
+    ......   ......   YYYRRR
+    ......   ..G...   YYGRRR
+    ......   ....R.   YGBBRR
+    ......   G....B   GBBBBB
+2-1 around [hand] inks=R,B sols=1 distinct=1 first=1 sameBeat=false plan=[[1,1,0],[5,1,2]]
+    .......   ....P..   RRRRPBB
+    .o.#.o.   .......   RRR#BBB
+    ...#...   .......   RRR#BBB
+    ...#...   .......   RRR#BBB
+    .......   ....P..   RRRRPBB
+2-2 c2-2 [c2_rb#733104] inks=R,B sols=3 distinct=3 first=3 sameBeat=false plan=[[4,2,0],[3,0,1]]
+    ......   ....P.   BBBBPR
+    ......   ..P...   PPPPRR
+    ......   ......   RRRRRR
+    .#..#.   ......   R#RR#R
+    ##..##   ......   ##RR##
+    ##..##   ......   ##RR##
+    ##..##   ......   ##RR##
+2-3 c2-3 [b2#1256799] inks=B,Y sols=4 distinct=2 first=3 sameBeat=false plan=[[0,1,0],[2,2,1]]
+    #####   .....   #####
+    .....   ..G..   BBGYY
+    .....   .G...   BGYYY
+    .....   .....   BGYYY
+    .....   .G...   BGYYY
+    #####   .....   #####
+2-4 c2-4 [c2_yb#942562] inks=Y,B sols=3 distinct=1 first=2 sameBeat=false plan=[[5,0,0],[4,2,1]]
+    .#..#.   ...B..   B#BB#Y
+    ......   ....G.   BBBBGY
+    ..##..   .....G   BB##BG
+    #....#   ......   #BBBB#
+    ......   ......   BBBBBB
+    ......   ......   BBBBBB
+    ......   ......   BBBBBB
+2-5 c2-5 [c2_rooms#1047293] inks=R,Y sols=3 distinct=1 first=2 sameBeat=false plan=[[5,7,0],[4,5,1]]
+    ..#.#.   ......   YY#Y#.
+    ..#.#.   ......   YY#Y#.
+    ..#.#.   ......   YY#Y#.
+    ..#.#.   ......   YY#Y#.
+    ..#.#.   ......   YY#Y#.
+    ..#...   .....O   YY#YYO
+    ..#.#.   ......   YY#Y#R
+    ....#.   ..Y..R   YYYY#R
+2-6 labyrinth [hand] inks=R,B sols=1 distinct=1 first=1 sameBeat=false plan=[[0,0,0],[0,6,4]]
+    o......   .......   RRRRRRR
+    ######.   .......   ######R
+    .......   .......   RRRRRRR
+    .######   .......   R######
+    .......   .P.....   RPBBBBB
+    ######.   .......   ######B
+    o......   .......   BBBBBBB
+2-7 c2-7 [c2_rb#2199310] inks=R,B sols=2 distinct=2 first=2 sameBeat=false plan=[[4,5,0],[2,4,1]]
+    .####.   ......   B####R
+    ......   ..P...   BBPRRR
+    #.##.#   ......   #B##R#
+    #.##.#   ......   #B##R#
+    #....#   ...P..   #BBPR#
+    ......   ......   BBPRRR
+    ......   .P....   BPRRRR
+2-8 c2-8 [b2#1989902] inks=B,Y sols=6 distinct=6 first=6 sameBeat=false plan=[[1,1,0],[4,3,1]]
+    .....   .....   BBBBB
+    .....   ....G   BBBBG
+    .....   ...G.   BBBGY
+    .....   .....   BBGYY
+    .....   ..G..   BBGYY
+    #.#.#   .....   #B#Y#
+2-9 c2-9 [c2_wells#1047293] inks=Y,R,B sols=1 distinct=1 first=1 sameBeat=false plan=[[4,3,0],[1,3,2],[0,5,3]]
+    .###..   ......   R###YY
+    ......   ......   RRYYYY
+    ......   .R....   RRYYYY
+    .o#.o.   ......   RR#YYY
+    o.#.##   ......   PR#Y##
+    o.#...   .P....   BP#YYY
+    ......   ..Y...   BBYYYY
+2-10 c2-10 [c2_ryb#523648] inks=R,Y,B sols=3 distinct=1 first=3 sameBeat=false plan=[[3,0,0],[5,5,1],[0,5,6]]
+    ##..##   ......   ##RR##
+    #....#   ......   #RRRR#
+    #....#   ......   #RRRR#
+    ......   ....O.   RRRROY
+    .#..#.   P.....   P#RR#Y
+    .#..#.   ......   B#RR#Y
+    .#..#.   ..OO..   B#OO#Y
+    ......   G.....   GYYYYY
+2-11 c2-11 [c2_wells#1466209] inks=Y,R,B sols=1 distinct=1 first=1 sameBeat=false plan=[[3,1,0],[2,0,1],[2,6,6]]
+    ..o.o#   ..R...   RRRYY#
+    ...o.#   ......   YYYYY#
+    .....#   ......   YYYYY#
+    ......   ......   YYYYYY
+    .####.   ......   Y####Y
+    .....#   ......   YGBBB#
+    ..o..#   G.....   GBBBB#
+2-12 c2-12 [c2_ryb#3037144] inks=R,Y,B sols=3 distinct=2 first=3 sameBeat=false plan=[[4,6,0],[5,0,1],[2,4,5]]
+    ......   ......   YYYYYY
+    .#....   ......   Y#YYYY
+    .#....   ..OO..   Y#OOOY
+    .#....   Y....O   Y#RRRO
+    .#.#..   ..B...   B#B#RR
+    ...#..   ......   BBB#RR
+    ..##..   ......   BB##RR
+    ...#..   ......   BBB#RR
+3-1 sleeping [hand] inks=R sols=4 distinct=4 first=4 sameBeat=false plan=[[3,3,0]]
+    .......   ...B...   PBBBBBP
+    .......   .......   RPBBBPR
+    ...b...   ..P.P..   RRPBPRR
+    .......   .......   RRRRRRR
+    .......   .......   RRRRRRR
+    .......   .......   RRRRRRR
+    .......   .......   RRRRRRR
+3-2 c3-2 [c3_one#314190] inks=R sols=2 distinct=2 first=2 sameBeat=false plan=[[0,5,0]]
+    ......   ......   RRRRRR
+    ......   ......   RRRRRR
+    ......   .P....   RPRRRR
+    .b....   ..P..P   RBPRRP
+    .....b   ......   RRRRRB
+    ......   .....R   RRRRRR
+    ......   ......   RRRRRR
+3-3 c3-3 [b3#1780444] inks=Y sols=5 distinct=5 first=5 sameBeat=false plan=[[0,0,0]]
+    .....   .....   YYYYY
+    ....#   .....   YYYY#
+    .....   .....   YYYYY
+    ..#..   .....   YY#YY
+    .....   .....   YYYYY
+    r....   .O...   ROYYY
+3-4 c3-4 [c3_two#3] inks=Y,R sols=3 distinct=3 first=1 sameBeat=false plan=[[4,2,0],[1,4,4]]
+    ......   ......   YYYYYY
+    .#..#.   ......   Y#YY#Y
+    ......   ......   YYYYYY
+    ....b.   .Y...G   YYYGBG
+    #....#   ..G...   #RGBB#
+    ......   .R....   RRBBBB
+    ......   ..B...   RRBBBB
+3-5 c3-5 [c3_chain#1885125] inks=B,R sols=2 distinct=2 first=1 sameBeat=false plan=[[3,6,0],[5,5,1]]
+    ......   ......   BBBBPR
+    ......   ......   BBBBPR
+    ......   ....P.   BBBBPR
+    ....r.   G.....   GBBBRR
+    ......   ..G...   YGGBPR
+    y.y...   .....R   YGYBPR
+    .....#   ......   BBBBB#
+    ####.#   ......   ####B#
+3-6 c3-6 [c3_one#1989854] inks=R sols=2 distinct=2 first=2 sameBeat=false plan=[[4,5,0]]
+    ......   ......   RPBBBB
+    ......   ......   RRPBBB
+    ....b.   ...P..   RRRPBB
+    ......   .....P   RRRRRP
+    .....b   ......   RRRRRB
+    ......   .....R   RRRRRR
+    ......   ......   RRRRRR
+3-7 c3-7 [b3#523696] inks=Y sols=3 distinct=3 first=3 sameBeat=false plan=[[2,1,0]]
+    .....   .O...   ROYYY
+    .r...   .....   RRYYY
+    .....   .....   ROYYY
+    .#.#.   .....   R#Y#Y
+    .....   O....   OYYYY
+    .....   .....   YYYYY
+3-8 c3-8 [c3_mixed#2932417] inks=R,B sols=2 distinct=2 first=2 sameBeat=false plan=[[2,2,0],[4,7,2]]
+    #.b...#   .......   #PBBBB#
+    #..#..#   .......   #RR#BB#
+    #..#..#   .......   #RR#GG#
+    #.y#..#   .......   #OY#YY#
+    #.....#   .......   #YYYYY#
+    .......   .....P.   YYYYBP.
+    .....r.   .Y....P   YYYBBRP
+    .......   .......   BBBBBBB
+3-9 c3-9 [c3_chain#942564] inks=B,R sols=2 distinct=1 first=1 sameBeat=false plan=[[3,4,0],[3,2,1]]
+    .....y   ......   RRRRRY
+    ......   ......   RRRRRR
+    ......   ...R..   RRRRRR
+    ..#...   .....B   RR#BBB
+    ..#...   ......   RR#BBB
+    ..#.yr   .B....   BB#BYR
+    ......   ....G.   BBBBGR
+    #.....   ......   #BBBBP
+3-10 c3-10 [c3_three#2408772] inks=Y,B,R sols=2 distinct=1 first=2 sameBeat=false plan=[[1,0,0],[6,2,1],[3,7,5]]
+    .......   .....G.   YYYYYGB
+    .#.....   ....G..   Y#YYGBB
+    ...b...   .......   YYYBBBB
+    .......   .......   YYYGBBB
+    .#.....   ...G...   Y#YGBBB
+    .....#.   .......   YYYGB#B
+    ...#...   .O.....   YOO#PBB
+    ..r....   .....P.   ORRRRPB
+3-11 c3-11 [c3_mixed#628379] inks=R,B sols=2 distinct=2 first=2 sameBeat=false plan=[[0,6,0],[4,1,1]]
+    .......   P......   PBBBBBB
+    ...#...   .......   RPB#BBB
+    ...#...   ..P....   RRP#BBB
+    .....r.   ..P....   RRPBBRP
+    ....##b   .......   RRRK##B
+    ...y...   ....O..   RRRYORR
+    .......   .......   RRRRRRR
+    ..#....   .......   RR#RRRR
+3-12 c3-12 [c3_three#2932417] inks=Y,B,R sols=2 distinct=2 first=1 sameBeat=false plan=[[4,2,0],[2,6,4],[0,0,5]]
+    ..b....   .....O.   RBBYYO.
+    ...#.r.   R......   RBB#YRO
+    ..#....   .G.....   RG#YYYY
+    ..#....   .......   YY#YYYY
+    .......   .......   YYYYYYY
+    .......   ..G....   YYGYYYY
+    .#.....   G......   G#BGYYY
+    .......   ...G...   BBBGYYY
+4-1 short-ink [hand] inks=R2 sols=1 distinct=1 first=1 sameBeat=false plan=[[2,2,0]]
+    .....   ..R..   ..R..
+    .....   .....   .RRR.
+    .....   R...R   RRRRR
+    .....   .....   .RRR.
+    .....   ..R..   ..R..
+4-2 white-space [hand] inks=B3 sols=3 distinct=3 first=3 sameBeat=false plan=[[0,1,0]]
+    ......   B....x   BBB...
+    ......   ......   BBBB..
+    ......   B...x.   BBB...
+    ......   ......   BB....
+    ......   B....x   B.....
+4-3 c4-3 [c4_short#2408772] inks=R3,B3 sols=3 distinct=2 first=1 sameBeat=false plan=[[1,4,0],[4,6,1]]
+    ......   ......   ......
+    ......   .R....   .R....
+    ......   ...xx.   RRR...
+    ......   ......   RRRR..
+    ......   ......   RRRRPB
+    ......   ...P..   RRRPBB
+    ......   ..P...   RRPBBB
+4-4 c4-4 [b4#104780] inks=B3,R2 sols=5 distinct=4 first=1 sameBeat=false plan=[[0,2,0],[0,5,2]]
+    .....   ..x..   BB...
+    .....   .....   BBB..
+    .....   ..B..   BBBB.
+    .....   ...xx   BBB..
+    .....   .B...   BB...
+    .....   .....   RRR..
+4-5 c4-5 [c4_mixed#1256753] inks=Y,B2 sols=3 distinct=2 first=3 sameBeat=false plan=[[5,2,0],[2,4,1]]
+    ######   ......   ######
+    .####.   ......   .####Y
+    ......   x.G...   ..GYYY
+    ......   x..G..   .BBGYY
+    ......   ......   BBBBGY
+    .#..#.   ......   .#BB#Y
+    .#..#.   ......   .#B.#Y
+4-6 seal [hand] inks=R,B sols=1 distinct=1 first=1 sameBeat=false plan=[[0,0,0],[6,1,1]]
+    o......   .......   RRRRPBB
+    ......o   .......   RRRPBBB
+    .......   .......   RRRPBBB
+    ###.###   .......   ###.###
+    ###.###   .......   ###.###
+    ###.###   ...x...   ###.###
+4-7 c4-7 [c4_seed#1989856] inks=Y3,R sols=2 distinct=2 first=1 sameBeat=false plan=[[2,4,0],[0,7,1]]
+    ......   ......   ......
+    ......   ...x..   ..Y...
+    ......   x.....   .YYY..
+    ......   ...Y.x   YYYYY.
+    ......   ......   YYYYYY
+    b.####   ......   BY####
+    .....#   RO....   RORRR#
+    .....#   ......   RRRRR#
+4-8 c4-8 [b4#1989902] inks=B3,R2 sols=3 distinct=1 first=1 sameBeat=false plan=[[0,3,0],[3,4,1]]
+    .....   .x...   B....
+    .....   ...x.   BB...
+    .....   ..B..   BBBR.
+    .....   ....R   BBBRR
+    .....   ..R..   BBRRR
+    .....   .....   BBRRR
+4-9 c4-9 [c4_short#2199314] inks=R3,B3 sols=2 distinct=2 first=1 sameBeat=false plan=[[4,5,0],[5,1,1]]
+    ......   x.x...   ...BBB
+    ......   ......   ..BBBB
+    ......   ..x.P.   ...BPB
+    ......   .....P   ...RRP
+    ......   .x....   ..RRRR
+    ......   ......   .RRRRR
+    ......   ......   ..RRRR
+4-10 c4-10 [c4_three#1780398] inks=R4,Y3,B4 sols=2 distinct=2 first=1 sameBeat=false plan=[[5,4,0],[3,5,1],[0,5,2]]
+    .#....   ....x.   .#...R
+    ......   ......   B...RR
+    ......   ......   BB.RRR
+    ......   ..O...   BBORRR
+    ......   .G.O..   BGYORR
+    ......   ......   BGYYOR
+    ....#.   ......   BGYY#R
+    #.#...   .x....   #.#YOR
+4-11 c4-11 [c4_seed#3037146] inks=Y3,R sols=2 distinct=2 first=1 sameBeat=false plan=[[3,2,0],[3,7,1]]
+    ......   ....x.   BBY...
+    ...##.   ......   BYY##Y
+    b.....   ......   BYYYYY
+    ..#...   ......   BY#YYY
+    ..#...   .P....   BP#YY.
+    ......   ...O..   PRRO..
+    ....#.   .....x   RRRR#.
+    ....#.   ......   RRRR#.
+4-12 c4-12 [c4_three#942566] inks=R4,Y3,B4 sols=1 distinct=1 first=1 sameBeat=false plan=[[4,2,0],[0,3,1],[1,4,2]]
+    #.....   .x....   #.RRRR
+    ....#.   Y.....   YORR#R
+    ..#...   ......   YY#RRR
+    ......   ..O...   YYORRR
+    ......   Y.....   YBBRRR
+    #.....   .B....   #BBRRR
+    ......   .....x   BBBBR.
+    ......   ...x..   BBB...
+5-1 heavy-paper [hand] inks=R,B sols=1 distinct=1 first=1 sameBeat=false plan=[[0,1,0],[6,1,2]]
+    .~~....   ...P...   RRRPBBB
+    o~~...o   ...P...   RRRPBBB
+    .~~....   ...P...   RRRPBBB
+5-2 c5-2 [c5_rb#837837] inks=R,B sols=3 distinct=1 first=2 sameBeat=false plan=[[5,5,0],[1,4,1]]
+    .~.~~~   ......   BBBRRR
+    .~~~..   ......   BBBRRR
+    ..~~..   ......   BBBRRR
+    ......   ...P..   BBBPRR
+    ......   ...P..   BBBPRR
+    ......   ..P...   BBPRRR
+    ......   .B....   BBPRRR
+5-3 c5-3 [b5#1256799] inks=R,Y sols=5 distinct=3 first=5 sameBeat=false plan=[[0,0,0],[4,0,1]]
+    ...~~   ...O.   RRROY
+    .....   ...O.   RRROY
+    ...~~   ....Y   RRRRY
+    .....   .....   RRRRY
+    .....   .....   RRRRY
+    .....   .....   RRRRY
+5-4 c5-4 [c5_walls#628381] inks=Y,B sols=2 distinct=2 first=1 sameBeat=false plan=[[4,6,0],[0,1,1]]
+    ......   .....B   BBBBBB
+    ..###.   .....Y   BB###Y
+    ......   ......   BBBBBY
+    ....~~   ...G..   BBBGYY
+    #...~.   ......   #BYYYY
+    #~.~~.   ......   #YYYYY
+    #..~..   ......   #YYYYY
+    ..####   ......   YY####
+5-5 c5-5 [c5_seed#2932419] inks=B,R sols=2 distinct=2 first=1 sameBeat=false plan=[[6,5,0],[1,4,1]]
+    .......   .......   .......
+    ....~~.   .......   .......
+    .....~.   .......   .......
+    ####.##   .......   ####.##
+    y...~~.   ....P..   YRRRPBB
+    ....~~.   O..R...   ORRRBBB
+    .......   ...B...   RRRBBBB
+    .......   ..R....   RRRBBBB
+5-6 c5-6 [b5#837883] inks=R,Y sols=3 distinct=1 first=2 sameBeat=false plan=[[0,0,0],[3,1,1]]
+    .~...   ..O..   RROYY
+    .....   .....   RRYYY
+    ..~..   .....   RRYYY
+    ..~..   .....   RRYYY
+    .....   ..Y..   RRYYY
+    .....   .R...   RRYYY
+5-7 c5-7 [c5_rb#1780398] inks=R,B sols=2 distinct=2 first=2 sameBeat=false plan=[[4,2,0],[0,1,3]]
+    ......   .P....   BPRRRR
+    ......   ......   BPRRRR
+    ..~~..   .P....   BPRRRR
+    ..~...   ......   BRRRRR
+    ......   P.....   PRRRRR
+    ....~~   ......   RRRRRR
+    ......   ......   RRRRRR
+5-8 c5-8 [c5_walls#314194] inks=Y,B sols=2 distinct=1 first=2 sameBeat=false plan=[[5,0,0],[1,7,1]]
+    .#~...   ......   B#YYYY
+    .#~...   ......   B#YYYY
+    ..~...   .B....   BBYYYY
+    ..#...   ......   BB#YYY
+    ..#~~.   ...G..   BB#GYY
+    ......   ....G.   BBBBGY
+    #..~..   ......   #BBBBY
+    #..~..   .....B   #BBBBB
+5-9 c5-9 [c5_ryb#1466213] inks=R,Y,B sols=2 distinct=1 first=2 sameBeat=false plan=[[0,4,0],[5,2,1],[6,6,4]]
+    .......   ..O....   RROYYYY
+    ...#...   .......   RRR#YYY
+    ~~.#...   .......   RRR#YYY
+    .....~.   .......   RRROYYY
+    ...~~~~   .......   RRRRYYY
+    ...~~..   ....OGB   RRRROGB
+    .......   ....P..   RRRRPBB
+    #......   ....P..   #RRRPBB
+5-10 c5-10 [c5_seed#733110] inks=B,R sols=2 distinct=2 first=2 sameBeat=false plan=[[4,1,0],[6,3,1]]
+    .~...#.   .......   BBBBB#R
+    .~...#.   .......   BBBBB#R
+    ...~~..   .....P.   BBBBBPR
+    ..~~~~.   ....B..   BBBBBRR
+    .##....   ...R...   B##RRRR
+    ...y...   .......   BYYYRRR
+    .......   ...O...   BYYORRR
+    .......   B......   BYORRRR
+5-11 c5-11 [c5_walls#1570942] inks=Y,B sols=1 distinct=1 first=1 sameBeat=false plan=[[2,6,0],[0,4,3]]
+    ..##..   .....Y   BB##YY
+    ~~##~~   ......   BB##YY
+    ~....~   ....G.   BBBBGY
+    .####.   ......   B####Y
+    ......   .G....   BGYYYY
+    .~..~.   ......   BYYYYY
+    .~~~~.   Y.....   YYYYYY
+    .####.   ......   Y####Y
+5-12 c5-12 [c5_ryb#1361484] inks=R,Y,B sols=2 distinct=1 first=2 sameBeat=false plan=[[0,2,0],[2,2,2],[3,0,3]]
+    ......#   ..G....   RRGBBB#
+    .....~.   ...G..G   RRYGGBG
+    ~....~.   .R.....   RRYYYYY
+    ~......   .......   RRYYYYY
+    ~....#.   .......   RRYYY#Y
+    ~......   .......   RRYYYYY
+    .......   .......   RRYYYYY
+    .#~~...   .......   R#YYYYY
+6-1 c6-1 [b6#1047341] inks=R,B sols=3 distinct=3 first=3 sameBeat=false plan=[[0,4,0],[3,1,5]]
+    y.....   .OP...   YOPBBB
+    ..~...   ...B..   RRRBBB
+    ..~...   .....R   RRRRRR
+    ..~...   ......   RRRRRR
+    ......   ......   RRRRRR
+    ......   ......   RRRRRR
+    .#.###   ......   R#R###
+6-2 c6-2 [c6_d#104770] inks=R,B,Y,B sols=1 distinct=1 first=1 sameBeat=false plan=[[5,4,0],[3,3,1],[3,1,2],[0,0,5]]
+    o......   .......   BYYYYRR
+    ...o...   Y......   YYYYYRR
+    .....o.   .......   BBBBPRR
+    .#.o...   .......   B#BBPRR
+    .#...o.   ...P...   B#BPRRR
+    .#.....   .......   B#PRRRR
+    .####..   P......   P####RR
+    .......   .......   RRRRRRR
+6-3 c6-3 [c6_a#314194] inks=R,Y,B sols=1 distinct=1 first=1 sameBeat=false plan=[[2,0,0],[2,4,2],[4,6,5]]
+    #...b.#   .......   #RRRBB#
+    #.....#   .......   #RRRPB#
+    #.....#   .....P.   #RRRRP#
+    .......   .R.....   RRRRRRR
+    ..~~~..   ....O.R   YYYYORR
+    .......   Y......   YYYYGBB
+    .......   ....B..   YYYGBBB
+    .......   ...G...   YYYGBBB
+    #######   .......   #######
+6-4 c6-4 [c6_b#628405] inks=Y4,B,R3 sols=1 distinct=1 first=1 sameBeat=false plan=[[4,5,0],[3,7,1],[6,5,2]]
+    ...#.#.   .......   ...#.#.
+    ...#.#.   ......x   ...#Y#.
+    ...#.#.   x......   ...#Y#R
+    ...#.#.   .......   ..Y#Y#R
+    ...#.#.   .......   .YY#Y#R
+    .....#.   .......   YYYYY#R
+    .......   ......O   BGGGYYO
+    .......   ....G..   BBBBGYY
+    ...#...   ......x   BBB#.Y.
+6-5 c6-5 [b6#1361528] inks=R,B sols=2 distinct=2 first=1 sameBeat=false plan=[[0,2,0],[4,0,2]]
+    ~....#   ..B...   RRBBB#
+    ......   ..R...   RRRBBB
+    ~~..##   ...P..   RRRP##
+    ~.....   ......   RRRRRR
+    ......   ......   RRRRRR
+    ......   ......   RRRRRR
+    ....y.   ......   RRRRYO
+6-6 c6-6 [c6_c#1570972] inks=B4,R,Y4 sols=1 distinct=1 first=1 sameBeat=false plan=[[3,3,0],[0,0,1],[6,3,4]]
+    ...~...   ....P..   RRRRPYY
+    .#.~.#.   .......   R#RBB#Y
+    ..~~~..   .....B.   RRBBBBY
+    .~~.~~.   .B.....   RBBBBBY
+    ...#...   P.....G   PBB#BBG
+    .......   .......   .BBBBB.
+    .......   .....x.   ..B.B..
+    .......   ....x..   .......
+    ..#.#..   .......   ..#.#..
+6-7 c6-7 [c6_a#523652] inks=R,Y,B sols=1 distinct=1 first=1 sameBeat=false plan=[[1,0,0],[3,4,3],[3,3,4]]
+    .......   .......   RRRRRRR
+    ..###..   .......   RR###RR
+    .~...~.   .....R.   RRRRRRR
+    .~.~.~.   ....G.O   RRRBGYO
+    ...~...   .O.....   ROYYYYY
+    .#####.   .......   R#####Y
+    ...#...   .......   RRR#YYY
+    .#####.   .......   R#####Y
+    b......   .......   BBBBGYY
+6-8 c6-8 [c6_b#418947] inks=Y4,B,R3 sols=1 distinct=1 first=1 sameBeat=false plan=[[1,1,0],[6,1,1],[3,4,3]]
+    .......   ....G..   YYYYGBB
+    .......   .......   YYYYGBB
+    .......   .......   YYYYGBB
+    .......   ...O...   YYYOPBB
+    .......   ..O....   YYORRPB
+    .......   .Y...P.   .YRRRPB
+    ####...   .......   ####RBB
+    ##...##   ..x.x..   ##...##
+    .......   .......   .......
+6-9 c6-9 [b6#733154] inks=R,B sols=2 distinct=2 first=2 sameBeat=false plan=[[2,2,0],[4,2,3]]
+    .#....   .....R   R#RRRR
+    .#....   ......   R#RRRR
+    ...#..   .....B   RRR#BB
+    ...#..   ......   RRR#BB
+    ...#~.   ......   RRR#BB
+    ...#~~   ....P.   RRR#PB
+    .y....   O....R   OYRRRR
+6-10 c6-10 [c6_c#314224] inks=B4,R,Y4 sols=1 distinct=1 first=1 sameBeat=false plan=[[0,5,0],[5,4,1],[6,7,2]]
+    .#~~~#.   x......   .#RRR#R
+    ~..~..~   .......   BRRRRRR
+    ...#...   .......   BBR#RRR
+    .......   ..P....   BBPRRRR
+    ~.....~   ..P....   BBPRRRR
+    ~.....~   .......   BBBPRRR
+    ~.....~   ...P.R.   BBBPRRY
+    ...#...   ....Y..   BBB#YYY
+    .......   ..x....   BB.YYYY
+6-11 c6-11 [c6_a#1570942] inks=R,Y,B sols=1 distinct=1 first=1 sameBeat=false plan=[[2,7,0],[3,4,2],[3,1,3]]
+    .~.....   .......   BBBBBBB
+    .~~...#   B......   BBBBBB#
+    ..#....   R...GG.   RR#GGGY
+    ..#....   .......   RR#YYYY
+    ..#....   .......   RR#YYYY
+    .......   ...Y...   RRRYYYY
+    .#.....   .......   R#RRRRR
+    .#~~~.#   .....P.   R#RRRP#
+    .#..b..   .......   R#RRBBB
+6-12 c6-12 [c6_d#41] inks=R,B,Y,B sols=1 distinct=1 first=1 sameBeat=false plan=[[3,4,0],[6,0,1],[1,7,2],[6,6,3]]
+    .#####o   .......   R#####B
+    .......   ....P..   RRRRPBB
+    ......o   .....P.   RRRRRPB
+    .......   .......   RRRRRRP
+    ...o...   .......   RRRRRRR
+    ....#..   .......   RRRR#RP
+    ....#.o   .......   YYRR#PB
+    .o.....   ..Y..P.   YYYRRPB
